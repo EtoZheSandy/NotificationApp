@@ -1,5 +1,5 @@
 package su.afk.notificationapp.notification
 
 object Counter {
-    var value = 0
+    var value = 1
 }

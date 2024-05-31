@@ -32,19 +32,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        // клик по кнопке
-        binding.button.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-                == PackageManager.PERMISSION_GRANTED) {
-                // Разрешение уже предоставлено, отправляем уведомление
-                val notification = NotificationService(applicationContext).showNotification(Counter.value.toString())
-            } else {
-                // Разрешение не предоставлено, запрашиваем его
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                    NOTIFICATION_PERMISSION_REQUEST_CODE)
-            }
-        }
+        //
     }
 
 }

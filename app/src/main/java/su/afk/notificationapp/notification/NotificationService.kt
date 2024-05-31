@@ -14,7 +14,6 @@ class NotificationService(
 ) {
     // Для запуска уведомления в канал
     private val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//    private val notificationManager = NotificationManagerCompat.from(this)
 
     fun showNotification(text: String) {
         val intentActivity = Intent(context, MainActivity::class.java)  // intent для открытия активити из уведомления

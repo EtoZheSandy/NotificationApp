@@ -26,6 +26,13 @@
         </activity>
 
         <receiver android:name=".notification.BroadcastNotificationCounter"/>
+
+        <service android:name=".notification.PushNotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
