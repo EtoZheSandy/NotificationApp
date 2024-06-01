@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NotificationApp</string>
+    <string name="title_activity_firebase_push">FirebasePushActivity</string>
 </resources>
