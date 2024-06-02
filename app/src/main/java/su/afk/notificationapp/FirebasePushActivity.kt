@@ -9,14 +9,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import su.afk.notificationapp.components.ChatScreen
@@ -43,22 +38,20 @@ class FirebasePushActivity : ComponentActivity() {
                     // Состояние ввода токена
                     if(state.isEnterToken) {
                         DialogEnterToken(
-                            token = state.remoteToken,
-                            onTokenChange = viewModel::onRemoteTokenChange,
-                            onSubmit = viewModel::onSubmitRemoteToken
+                            token = state.remoteToken, // токен изменения/ввода
+                            onTokenChange = viewModel::onRemoteTokenChange, // при вводе токена - изменяем его в state
+                            onSubmit = viewModel::onSubmitRemoteToken // при нажатие на отправку меняем состояние на экран чата
                         )
                         // Иначе находимся на экране чата
                     } else {
                         ChatScreen(
-                            messageText = state.messageText,
-                            onMessageChange = {
-                                viewModel::onMessageChange
+                            messageText = state.messageText, // текст ввода
+                            onMessageChange = viewModel::onMessageChange, // обновляем текст при вводе
+                            onMessageSend = {
+                                viewModel.sendMessage(isBroadcast = false) // отправка конкретному юзеру
                             },
                             onMessageBroadcast = {
-                                viewModel.sendMessage(isBroadcast = true)
-                            },
-                            onMessageSend = {
-                                viewModel.sendMessage(isBroadcast = false)
+                                viewModel.sendMessage(isBroadcast = true) // отправка всем
                             }
                         )
                     }

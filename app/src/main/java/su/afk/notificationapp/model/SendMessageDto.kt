@@ -1,6 +1,4 @@
-package su.afk.notificationapp
-
-import android.app.Notification
+package su.afk.notificationapp.model
 
 data class SendMessageDto(
     val token: String?,

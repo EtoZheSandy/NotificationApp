@@ -86,7 +86,7 @@ fun DialogEnterToken(
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Button(
-                    onClick = onSubmit
+                    onClick = onSubmit // переключаем состояние ввода на false
                 ) {
                     Text(text = "Send")
                 }
